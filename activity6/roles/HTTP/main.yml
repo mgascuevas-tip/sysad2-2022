@@ -1,0 +1,4 @@
+- name: Installing HTTPD
+  apt:
+    name: httpd
+    update_cache: yes
