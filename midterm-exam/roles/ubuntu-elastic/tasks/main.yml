@@ -8,9 +8,17 @@
     state: latest
     update_cache: yes
 
+- name: add SOURCES
+  shell: echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+
+- name: update
+  apt:
+    upgrade: 'yes'
+    update_cache: yes
+
 - name: Get elasticsearch repo
   apt_key:
-    url: "https://packages.elastic.co/GPG-KEY-elasticsearch"
+    url: https://packages.elastic.co/GPG-KEY-elasticsearch
     state: present
 
 - name: Get apt-transport-https

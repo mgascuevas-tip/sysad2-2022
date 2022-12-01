@@ -2,28 +2,44 @@
 
 - name: Install prerequisites of elasticsearch
   yum:
-    name: java-1.8.0-openjdk
+    name: java-11-openjdk-devel
     state: present
     update_cache: yes
 
 - name: Install elasticsearch repo
   yum_repository:
-    name: Elasticsearch repository for 6.x packages
-    baseurl: https://artifacts.elastic.co/packages/6.x/yum
+    name: Elasticsearch repository for 7.x packages
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
     gpgcheck: yes
     gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     enabled: yes
     description: Elstic 6.x repo
+
+- name: add repo
+  copy:
+    src: elasticsearch.repo
+    dest: /etc/yum.repos.d/
 
 - name: Add elasticsearch key
   rpm_key:
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     state: present
 
+- name: ELKport
+  lineinfile:
+    destfile: /etc/elasticsearch/elasticsearch.yml
+    regexp: 'http.port'
+    line: 'https.port: 9200'
+
+    #- name: Run ELK
+  #service:
+  # name: elasticsearch
+  #state: started
+
 - name: Install logstash repo
   yum_repository:
     name: Elastic repository for 6.x packages
-    baseurl: https://artifacts.elastic.co/packages/6.x/yum
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
     gpgcheck: yes
     gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     enabled: yes

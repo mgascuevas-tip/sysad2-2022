@@ -46,11 +46,10 @@
      target: install-webconf
      chdir: /tmp/nagios-4.4.6
 
-- name: Add user account
-  htpasswd:
-     path: /usr/local/nagios/etc/htpasswd.users
-     name: "{{user}}"
-     password: "{{pass}}"
+- name: Add web server to group
+  ansible.builtin.user:
+    name: www-data
+    group: nagios
 
 - name: a2enmod cgi
   command: a2enmod cgi
