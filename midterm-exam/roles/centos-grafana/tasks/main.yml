@@ -33,8 +33,9 @@
     state: started
 
 - name: Add influxdb repo
-  copy: src: influxdb.repo
-  dest: /etc/yum.repos.d/
+  copy:
+    src: influxdb.repo
+    dest: /etc/yum.repos.d/
 
 - name: Install influxdb
   yum:
