@@ -12,9 +12,10 @@
     update_cache: yes
   register: docker
 
-- name: Docker.py
+- name: Docker
   pip:
-    name: docker.py
+    name: docker
+    state: latest
   when: docker.change
   
 - name: Create Docker group

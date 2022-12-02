@@ -26,7 +26,7 @@
 
 - name: Initialize Docker to install Web Server
   docker_image:
-    name: newdeveloper/docker-apache-php
+    name: newdeveloper/apache-php
     state: present
     source: pull
 
