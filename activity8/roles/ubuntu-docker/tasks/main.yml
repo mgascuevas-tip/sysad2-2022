@@ -7,7 +7,6 @@
       - python3-pip
     update_cache: yes
 
-
 - name: Docker file
   apt:
     name: docker.io
@@ -18,3 +17,21 @@
   pip:
     name: docker.py
   when: docker.changed
+  
+- name: Run Docker Service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Initialize Docker to install Web Server
+  docker_image:
+    name: newdeveloper/docker-apache-php
+    state: present
+    source: pull
+
+- name: Utilizing docker to install db server
+  docker_image:
+    name: mysql/mysql-server:latest
+    state: present
+    source: pull
