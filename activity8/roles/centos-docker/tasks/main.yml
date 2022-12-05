@@ -16,3 +16,13 @@
   pip:
     name: docker.py
   when: docker.change
+  
+- name: Create Docker group
+  group:
+    name: docker
+    state: present
+
+- name: Add Docker Group to User
+  user:
+    name: mgascuevas-tip
+    group: docker
