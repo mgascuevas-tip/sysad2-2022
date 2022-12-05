@@ -1,0 +1,11 @@
+---
+
+- name: Docker for CentOS
+  hosts: centos
+    roles:
+      - centos-docker
+
+- name: Docker for Ubuntu
+  hosts: ubuntu
+    roles:
+      - ubuntu-docker
