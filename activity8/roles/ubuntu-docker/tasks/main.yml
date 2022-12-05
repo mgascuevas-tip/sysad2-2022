@@ -30,8 +30,18 @@
     state: present
     source: pull
 
-- name: Utilizing docker to install db server
+- name: Utilizing Docker to Install db server
   docker_image:
     name: mysql/mysql-server:latest
     state: present
     source: pull
+
+- name: Create Docker Group
+  group:
+    name: docker
+    state: present
+
+- name: Add Docker Group to User
+  user:
+    name: mgascuevas-tip
+    group: docker
