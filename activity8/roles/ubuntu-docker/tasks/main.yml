@@ -1,0 +1,20 @@
+---
+
+- name: Installing Dependencies
+  apt:
+    name:
+      - python3
+      - python3-pip
+    update_cache: yes
+
+
+- name: Docker file
+  apt:
+    name: docker.io
+    update_cache: yes
+  register: docker
+
+- name: Docker.py
+  pip:
+    name: docker.py
+  when: docker.changed
