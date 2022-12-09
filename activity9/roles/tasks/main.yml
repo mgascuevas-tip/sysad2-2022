@@ -1,0 +1,16 @@
+- name: Installing chrony NTP
+  apt:
+    name: chrony
+    state: latest
+    
+- name: Allowing nodes
+  lineinfile:
+    path: /etc/chrony.conf
+    line: 'allow 10.0.0.0/24'
+
+    
+- name: Starting chronyd service
+  service:
+    name: chronyd
+    state: started
+    enabled: yes
