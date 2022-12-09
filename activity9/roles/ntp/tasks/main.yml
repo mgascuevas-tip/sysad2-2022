@@ -1,5 +1,5 @@
 - name: Installing chrony NTP
-  apt:
+  yum:
     name: chrony
     state: latest
     
