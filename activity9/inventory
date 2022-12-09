@@ -1,0 +1,7 @@
+[centos]
+192.168.1.7
+
+[centos:vars]
+ansible_ssh_user=gedrei
+ansible_ssh_pass=ged156435
+ansible_sudo_pass=ged156435
