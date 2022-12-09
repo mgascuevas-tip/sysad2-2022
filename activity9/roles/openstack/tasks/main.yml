@@ -1,14 +1,14 @@
 - name: install openstack newton or queens
   yum:
-    name: https://repos.fedorapeople.org/openstack/EOL/openstack-newton/rdo-release-newton-5.noarch.rpm
-  state: present
+    name: centos-release-openstack-queens.noarch
+    state: present
   
 - name: openstack client
   yum:
     name: python-openstackclient
-  state: latest
+    state: latest
   
 - name: openstack selinux
   yum:
     name: openstack-selinux
-  state: latest
+    state: latest
