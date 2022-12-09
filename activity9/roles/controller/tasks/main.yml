@@ -1,0 +1,23 @@
+- name: Edit hosts
+  blockinfile:
+    path: /etc/hosts
+    block: |
+      192.168.1.6 controller
+      
+      192.168.1.8 compute1
+      
+      192.168.1.9 block1
+
+- name: edit controller bootproto
+  lineinfile:
+    path: /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    regexp: '^BOOTPROTO='
+    line: BOOTPROTO=none
+    
+- name: edit chrony daemon
+  lineinfile:
+    path: /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    regexp: '^allow 192.168.1.0/24'
+    line: allow 192.168.100.0/24
+   
+
