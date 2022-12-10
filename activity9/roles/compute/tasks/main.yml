@@ -1,7 +1,12 @@
+- name: create interface
+  file:
+    path: /etc/network/interfaces
+    state: touch
+
+
 - name: configure interface
   blockinfile:
     path: /etc/network/interfaces
-    state: touch
     block: |
       auto enp0s3
       iface  enp0s3 inet manual
@@ -10,10 +15,10 @@
       
 - name: configure node hostname
   blockinfile:
-  path: /etc/hosts
-  block: |
-    # controller
-      192.168.100.7      controller
+    path: /etc/hosts
+    block: |
+      # controller
+        192.168.100.7      controller
 
-    # compute1
-      192.168.100.4       compute1
+      # compute1
+        192.168.100.4       compute1

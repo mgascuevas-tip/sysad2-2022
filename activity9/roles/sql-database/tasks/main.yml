@@ -25,7 +25,7 @@
     
 - name: enable mariadb
   service:
-    name: mariabd
-  state: started
-  enabled: yes
+    name: mariadb
+    state: started
+    enabled: yes
      
