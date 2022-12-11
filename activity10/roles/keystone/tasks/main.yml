@@ -27,7 +27,7 @@
     insertafter: "[database]"
     block: |
       # ...
-      connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@controller/keystone
+      connection = mysql+pymysql://keystone:ged156435@controller/keystone
       
 - name: Insert connection to token
   blockinfile:
