@@ -1,4 +1,4 @@
-- name: Installing Git for Centos
+- name: Installing Git 
   yum:
     name: git
     state: latest
