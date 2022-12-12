@@ -5,7 +5,7 @@
   vars_files:
     - config.yaml
   roles:
-    - centos-clone
+    - centos-prelim
     - centos-ftp
     - centos-motd
     - centos-nagios
@@ -16,7 +16,7 @@
   vars_files:
     - config.yaml
   roles:
-    - ubuntu-clone
+    - ubuntu-prelim
     - ubuntu-ftp
     - ubuntu-motd
     - ubuntu-nagios
@@ -27,7 +27,7 @@
   vars_files:
     - config.yaml
   roles:
-    - debian-clone
+    - debian-prelim
     - debian-ftp
     - debian-motd
     - debian-nagios
