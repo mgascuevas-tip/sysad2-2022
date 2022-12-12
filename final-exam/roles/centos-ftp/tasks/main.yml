@@ -1,5 +1,3 @@
----
-
 - name: Installing FTP 
   yum:
     name: vstpd
@@ -12,10 +10,10 @@
     state: started
     enabled: yes
 
-- name: FTP user
+- name: FTP user create
   user:
-    name: '{{ ftp_user  }}'
-    password: '{{ ftp_pass }}'
+    name: Gerland
+    password: ged156435
 
 - name: denying access
   lineinfile:
@@ -29,24 +27,22 @@
     state: restarted
   when: successfully_denied.changed
 
-- name: Default configuration file
+- name: configuration file
   copy:
     src: /etc/vsftpd/vsftpd.conf
     dest: /etc/vsftpd/vsftpd.conf.default
     remote_src: True
 
-- name: Limiting FTP users
+
+- name: restrict FTP users
   replace:
     path: /etc/vsftpd/vsftpd.conf
-    regexp: '#chroot_local_user=YES'
-    replace: 'chroot_local_user=YES'
+    regexp: '^anonymous_enable=YES'
+    replace: 'anonymous_enable=NO'
 
-- name: FTP configure file
-  lineinfile:
-    path: /etc/vsftpd/vsftpd.conf
-    line: '{{ ftp_config }}'
 
-- name: Restart vsftpd
+
+- name: vsftpd restart
   service:
     name: vsftpd
     state: restarted
