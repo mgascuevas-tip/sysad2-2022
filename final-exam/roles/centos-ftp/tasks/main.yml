@@ -1,12 +1,12 @@
 ---
-# tasks file for roles/centos-ftp
-- name: Installing FTP on Centos
+
+- name: Installing FTP 
   yum:
     name: vstpd
     state: latest
     update_cache: yes
 
-- name: FTP server startup
+- name: start FTP server
   service:
     name: vstpd
     state: started
@@ -14,10 +14,10 @@
 
 - name: FTP user
   user:
-    name: '{{ fpt_user  }}'
+    name: '{{ ftp_user  }}'
     password: '{{ ftp_pass }}'
 
-- name: Denying access for user
+- name: denying access
   lineinfile:
     pathf: /etc/ssh/sshd_config
     line: "DenyUsers '{{ ftp_user }}'"
