@@ -1,25 +1,26 @@
 ---
-- name: CentOS
-  hosts:
-    - centos
-  vars_files:
-    - config.yaml
-  roles:
+#- name: CentOS
+#hosts:
+#- centos
+#vars_files:
+#- config.yaml
+#roles:
     #- centos-prelim
     #- centos-ftp
     #- centos-motd
-    - centos-nagios
+    #- centos-nagios
 
-      #- name: Ubuntu
-      #hosts:
-      #- ubuntu
-      #vars_files:
-      #- config.yaml
-      #roles:
-      #- ubuntu-prelim
-      #- ubuntu-ftp
-      #- ubuntu-motd
-      #- ubuntu-nagios
+- name: Ubuntu
+  become: true
+  hosts:
+      - ubuntu
+  vars_files:
+      - config.yaml
+  roles:
+      - ubuntu-prelim
+      - ubuntu-ftp
+      - ubuntu-motd
+      - ubuntu-nagios
 
       #- name: Debian
       #hosts:
