@@ -16,19 +16,19 @@
       #-fedora
   #vars_files:
       # config.yaml
-  roles:
-      - fedora-prelim
-      - fedora-ftp
-      - fedora-motd
-      - fedora-nagios
+      #roles:
+    #- fedora-prelim
+    #- fedora-ftp
+    #- fedora-motd
+    #- fedora-nagios
 
 - name: Debian
+  become: true
   hosts:
     - debian
-  vars_files:
-    - config.yaml
+  become_user: root
   roles:
-    - debian-prelim
-    - debian-ftp
+    # - debian-prelim
+    #- debian-ftp
     - debian-motd
-    - debian-nagios
+      #- debian-nagios

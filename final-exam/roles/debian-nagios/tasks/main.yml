@@ -29,26 +29,12 @@
    shell: /bin/bash
    comment: nagios user
    group: nagios
-   password: ged156435
-
-- name: Nagios user group added for External Command
-  user:
-   name: gedrei
-   group: nagcmd
-   append: yes
-
-- name: www-data user group added for External Command
-  user:
-   name: www-data
-   group: nagcmd
-   append: yes
+   password: 12345678
 
 - name: Downloads directory
   file:
    path: /downloads
    state: directory
-   owner: nobody
-   group: nogroup
 
 - name: Downloading Plugins
   get_url:

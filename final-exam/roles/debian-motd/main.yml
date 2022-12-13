@@ -1,0 +1,5 @@
+- name: motd
+  lineinfile:
+    path: /etc/motd
+    line: "ansible managed by ged"
+    create: yes
