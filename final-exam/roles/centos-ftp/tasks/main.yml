@@ -12,7 +12,7 @@
 
 - name: FTP user create
   user:
-    name: Gerland
+    name: gedrei
     password: ged156435
 
 - name: denying access
@@ -39,8 +39,6 @@
     path: /etc/vsftpd/vsftpd.conf
     regexp: '^anonymous_enable=YES'
     replace: 'anonymous_enable=NO'
-
-
 
 - name: vsftpd restart
   service:
