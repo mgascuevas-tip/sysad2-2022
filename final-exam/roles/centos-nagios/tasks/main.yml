@@ -55,7 +55,7 @@
 
 - name: downloads folder
   file: 
-    pate: /downloads
+    path: /downloads
     state: directory
 
 - name: download nagios
@@ -97,7 +97,7 @@
 - name: config files installation
   make: 
     chdir: /downloads/nagios-4.2.1
-    target: install-conf
+    target: install-config
 
 - name: permissions
   make:
@@ -106,7 +106,7 @@
 
 - name: nagios interface
   make:
-    chdor: /downloads/nagios-4.2.1
+    chdir: /downloads/nagios-4.2.1
     target: install-webconf
 
 - name: classic UI theme
@@ -128,7 +128,7 @@
 - name: nagiosadmin account
   htpasswd:
     path: /usr/local/nagios/etc/htpasswd.users
-    name: nagiosadmin
+    name: gedrei
     password: ged156435
 
 - name: apache restart

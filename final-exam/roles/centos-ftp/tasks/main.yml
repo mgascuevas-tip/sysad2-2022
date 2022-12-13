@@ -1,12 +1,12 @@
 - name: Installing FTP 
   yum:
-    name: vstpd
+    name: vsftpd
     state: latest
     update_cache: yes
 
 - name: start FTP server
   service:
-    name: vstpd
+    name: vsftpd
     state: started
     enabled: yes
 
@@ -15,17 +15,10 @@
     name: gedrei
     password: ged156435
 
-- name: denying access
-  lineinfile:
-    pathf: /etc/ssh/sshd_config
-    line: "DenyUsers '{{ ftp_user }}'"
-  register: successfully_denied
-
 - name: SSHD service restart
   service:
     name: sshd
     state: restarted
-  when: successfully_denied.changed
 
 - name: configuration file
   copy:

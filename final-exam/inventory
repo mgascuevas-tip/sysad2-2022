@@ -1,5 +1,10 @@
 [centos]
-192.168.1.10
+192.168.100.7
+
+[centos:vars]
+ansible_ssh_user=root
+ansible_ssh_pass=12345678
+ansible_sudo_pass=12345678
 
 [debian]
 192.168.1.

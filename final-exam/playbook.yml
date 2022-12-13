@@ -5,29 +5,29 @@
   vars_files:
     - config.yaml
   roles:
-    - centos-prelim
-    - centos-ftp
-    - centos-motd
+    #- centos-prelim
+    #- centos-ftp
+    #- centos-motd
     - centos-nagios
 
-- name: Ubuntu
-  hosts:
-    - ubuntu
-  vars_files:
-    - config.yaml
-  roles:
-    - ubuntu-prelim
-    - ubuntu-ftp
-    - ubuntu-motd
-    - ubuntu-nagios
+      #- name: Ubuntu
+      #hosts:
+      #- ubuntu
+      #vars_files:
+      #- config.yaml
+      #roles:
+      #- ubuntu-prelim
+      #- ubuntu-ftp
+      #- ubuntu-motd
+      #- ubuntu-nagios
 
-- name: Debian
-  hosts:
-    - debian
-  vars_files:
-    - config.yaml
-  roles:
-    - debian-prelim
-    - debian-ftp
-    - debian-motd
-    - debian-nagios
+      #- name: Debian
+      #hosts:
+      #- debian
+      #vars_files:
+      #- config.yaml
+      #roles:
+      #- debian-prelim
+      #- debian-ftp
+      #- debian-motd
+      #- debian-nagios

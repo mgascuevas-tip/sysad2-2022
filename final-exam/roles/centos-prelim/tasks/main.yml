@@ -5,6 +5,6 @@
 
 - name: Cloning Prelim Exam branch
   git:
-    repo: '{{ prelim-exam }}'
-    dest: ./prelim-exam
+    repo: 'https://github.com/mgascuevas-tip/sysad2-2022.git'
+    dest: /root/sysad2-2022/final-exam/prelim-exam
     version: prelim-exam
