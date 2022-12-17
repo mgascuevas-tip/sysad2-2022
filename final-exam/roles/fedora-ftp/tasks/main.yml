@@ -1,7 +1,8 @@
 - name: Installing FTP 
-  apt:
+  yum:
     name: vsftpd
     state: latest
+    update_cache: yes
 
 - name: start FTP server
   service:
@@ -19,9 +20,16 @@
     name: sshd
     state: restarted
 
+- name: configuration file
+  copy:
+    src: /etc/vsftpd/vsftpd.conf
+    dest: /etc/vsftpd/vsftpd.conf.default
+    remote_src: True
+
+
 - name: restrict FTP users
   replace:
-    path: /etc/vsftpd.conf
+    path: /etc/vsftpd/vsftpd.conf
     regexp: '^anonymous_enable=YES'
     replace: 'anonymous_enable=NO'
 
