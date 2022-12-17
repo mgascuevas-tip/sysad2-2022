@@ -10,25 +10,25 @@
     #- centos-motd
     #- centos-nagios
 
-- name: Ubuntu
-  become: true
-  hosts:
-      - ubuntu
-  vars_files:
-      - config.yaml
+#- name: Fedora
+  #become: true
+  #hosts:
+      #-fedora
+  #vars_files:
+      # config.yaml
   roles:
-      - ubuntu-prelim
-      - ubuntu-ftp
-      - ubuntu-motd
-      - ubuntu-nagios
+      - fedora-prelim
+      - fedora-ftp
+      - fedora-motd
+      - fedora-nagios
 
-      #- name: Debian
-      #hosts:
-      #- debian
-      #vars_files:
-      #- config.yaml
-      #roles:
-      #- debian-prelim
-      #- debian-ftp
-      #- debian-motd
-      #- debian-nagios
+- name: Debian
+  hosts:
+    - debian
+  vars_files:
+    - config.yaml
+  roles:
+    - debian-prelim
+    - debian-ftp
+    - debian-motd
+    - debian-nagios
